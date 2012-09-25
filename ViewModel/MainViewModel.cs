@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.Threading;
 
 namespace Tetris.ViewModel
 {
@@ -29,14 +28,9 @@ namespace Tetris.ViewModel
             //brick2.Y = -550;
 
             Bricks.Add(brick1);
-          //  Bricks.Add(brick2);
-
-            while(true) {
-                foreach (Brick child in Bricks) {
-                    child.Y++;
-                }
-                System.
-        
+            //  Bricks.Add(brick2);
+            MoveBricks BrickMover = new MoveBricks(brick1);
         }
     }
+
 }

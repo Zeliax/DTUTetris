@@ -9,15 +9,8 @@ namespace Tetris.Model
 {
     public class Brick : NotifyBase
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
         
-        // Konstruktoren bruges i dette tilfælde til at sætte standard værdi for attributerne.
-        public Brick()
-        {
-            private int x;
+        private int x;
         public int X { get { return x; } set { x = value; NotifyPropertyChanged("X"); NotifyPropertyChanged("CanvasCenterX"); } }
         private int y;
         public int Y { get { return y; } set { y = value; NotifyPropertyChanged("Y"); NotifyPropertyChanged("CanvasCenterY"); } }
@@ -25,6 +18,28 @@ namespace Tetris.Model
         public int Width { get { return width; } set { width = value; NotifyPropertyChanged("Width"); NotifyPropertyChanged("CenterX"); NotifyPropertyChanged("CanvasCenterX"); } }
         private int height;
         public int Height { get { return height; } set { height = value; NotifyPropertyChanged("Height"); NotifyPropertyChanged("CenterY"); NotifyPropertyChanged("CanvasCenterY"); } }
+        
+ 
+        public Brick()
+        {
+
+            X = Y = 200;
+            Width = Height = 100;
         }
+
+        public void MoveXRight()
+        {
+            X++;
+        }
+        public void MoveXLeft()
+        {
+            X--;
+        }
+        public void MoveYDown()
+        {
+            Y++;
+        }
+
+        
     }
 }
