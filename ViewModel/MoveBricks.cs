@@ -14,13 +14,17 @@ namespace Tetris.ViewModel
         public MoveBricks(Brick brick)
         {
             this.brick = brick;
-            Timer timer = new Timer(10);
+            Timer timer = new Timer(300);
             timer.Elapsed +=new ElapsedEventHandler(run);
             timer.Start();
         }
         public void run(object sender, ElapsedEventArgs e)
         {
-            brick.MoveYDown();
+            if (brick.IsActive)
+            {
+                brick.MoveYDown();
+            }
+            
         }
     }
 }

@@ -9,7 +9,8 @@ namespace Tetris.Model
 {
     public class Brick : NotifyBase
     {
-        
+        private bool isActive = true;
+        public bool IsActive { get { return isActive; } set { isActive = value; NotifyPropertyChanged("Active"); } } 
         private int x;
         public int X { get { return x; } set { x = value; NotifyPropertyChanged("X"); NotifyPropertyChanged("CanvasCenterX"); } }
         private int y;
@@ -19,25 +20,33 @@ namespace Tetris.Model
         private int height;
         public int Height { get { return height; } set { height = value; NotifyPropertyChanged("Height"); NotifyPropertyChanged("CenterY"); NotifyPropertyChanged("CanvasCenterY"); } }
         
+        public int CanvasCenterX { get { return X + Width / 2; } set { X = value - Width / 2; NotifyPropertyChanged("X"); } }
+        public int CanvasCenterY { get { return Y + Height / 2; } set { Y = value - Height / 2; NotifyPropertyChanged("Y"); } }
+        public int CenterX { get { return Width / 2; } }
+        public int CenterY { get { return Height / 2; } }
  
         public Brick()
         {
 
             X = Y = 200;
-            Width = Height = 100;
+            Width = Height = 35;
         }
 
         public void MoveXRight()
         {
-            X++;
+            X += 35;
         }
         public void MoveXLeft()
         {
-            X--;
+            X -= 35;
         }
         public void MoveYDown()
         {
-            Y++;
+            Y += 35;
+            if (Y >= 35*17)
+            {
+                isActive = false;
+            }
         }
 
         
