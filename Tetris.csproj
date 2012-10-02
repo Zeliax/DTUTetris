@@ -60,9 +60,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Brick.cs" />
+    <Compile Include="Model\Class1.cs" />
     <Compile Include="Model\NotifyBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\MoveBricks.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

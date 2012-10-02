@@ -29,14 +29,8 @@ namespace Tetris.ViewModel
             //brick2.Y = -550;
 
             Bricks.Add(brick1);
-          //  Bricks.Add(brick2);
+            //  Bricks.Add(brick2);
 
-            while(true) {
-                foreach (Brick child in Bricks) {
-                    child.Y++;
-                }
-                System.
-        
         }
     }
 }
