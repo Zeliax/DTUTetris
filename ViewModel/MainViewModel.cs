@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System;
 using System.ComponentModel;
-using System.Windows.Forms;
 
 
 namespace Tetris.ViewModel
@@ -26,26 +25,28 @@ namespace Tetris.ViewModel
         public ICommand UndoCommand { get; private set; }
         public ICommand RedoCommand { get; private set; }
         public ICommand MoveBrickCommand { get; private set; }
+
         
         public MainViewModel()
         {
-
+            MoveBrickCommand = new RelayCommand<KeyEventArgs>(Move);
             Bricks = new ObservableCollection<Brick>() ;
             Brick brick1 = new Brick();
-            brick1.X = 0;
+            brick1.X = 400;
             brick1.Y = 0;
             Bricks.Add(brick1);
             MoveBricks BrickMover = new MoveBricks(brick1);
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
             RedoCommand = new RelayCommand(undoRedoController.Redo, undoRedoController.CanRedo);
         }
-            public void Move(object sender, System.Windows.Forms.KeyEventArgs e)
+            public void Move(KeyEventArgs e)
             {
-               if(e.KeyCode == Keys.Left)
+               
+               if(e.Key == Key.Left) 
                {
                    this.Bricks[0].MoveXLeft();
                }
-                if(e.KeyCode == Keys.Right)
+               if (e.Key == Key.Right)
                {
                    this.Bricks[0].MoveXRight();
                }
