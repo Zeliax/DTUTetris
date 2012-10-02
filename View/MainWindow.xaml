@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Model="clr-namespace:Tetris.Model"
         xmlns:View="clr-namespace:Tetris.View"
-        Title="Tetris" Height="700" Width="600" ResizeMode="NoResize" >
+        Title="Tetris" Height="685" Width="600" ResizeMode="NoResize" >
     <Window.Resources>
         <!-- Dette DataTemplate fortæller vinduet hvordan Node klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i NodeUserControl. -->
         <DataTemplate DataType="{x:Type Model:Brick}">
             <Canvas>
-                <Ellipse Fill="Blue" Stroke="Purple" StrokeThickness="6" StrokeDashArray="3.1" Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"/>
+                <Rectangle Fill="Blue"  Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"/>
             </Canvas>
         </DataTemplate>
         <!-- Dette DataTemplate fortæller vinduet hvordan Edge klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i EdgeUserControl. -->
