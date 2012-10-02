@@ -14,7 +14,7 @@ namespace Tetris.ViewModel
         public MoveBricks(Brick brick)
         {
             this.brick = brick;
-            Timer timer = new Timer(300);
+            Timer timer = new Timer(700);
             timer.Elapsed +=new ElapsedEventHandler(run);
             timer.Start();
         }
@@ -23,6 +23,10 @@ namespace Tetris.ViewModel
             if (brick.IsActive)
             {
                 brick.MoveYDown();
+            }
+            else
+            {
+                brick.Y = 0;
             }
             
         }

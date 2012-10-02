@@ -3,7 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Model="clr-namespace:Tetris.Model"
         xmlns:View="clr-namespace:Tetris.View"
+        xmlns:i ="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
+        
         Title="Tetris" Height="685" Width="600" ResizeMode="NoResize" >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="KeyUp">
+            <cmd:EventToCommand Command="{Binding DataContext.MoveBrickCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Window.Resources>
         <!-- Dette DataTemplate fortæller vinduet hvordan Node klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i NodeUserControl. -->
         <DataTemplate DataType="{x:Type Model:Brick}">
@@ -14,42 +22,39 @@
         <!-- Dette DataTemplate fortæller vinduet hvordan Edge klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i EdgeUserControl. -->
     </Window.Resources>
     <StackPanel>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        
-        <Menu Grid.Row="0">
-            <MenuItem Header="_Game">
-                <MenuItem Header="_New Game" />
-                <MenuItem Header="_Pause Game" />
-                <MenuItem Header="_Resume" />
-            </MenuItem>
-            <MenuItem Header="_Options">
-                <MenuItem Header="_Gamemode">
-                    <MenuItem Header="_Classic" />
-                    <MenuItem Header="_Arcade" />
-                    <MenuItem Header="_Rush" />
-                    <MenuItem Header="_Survival" />
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Help">
-                <MenuItem Header="_Rules" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-            </MenuItem>
-        </Menu>
+            <Menu Grid.Row="0">
+                <MenuItem Header="_Game">
+                    <MenuItem Header="_New Game" />
+                    <MenuItem Header="_Pause Game" />
+                    <MenuItem Header="_Resume" />
+                </MenuItem>
+                <MenuItem Header="_Options">
+                    <MenuItem Header="_Gamemode">
+                        <MenuItem Header="_Classic" />
+                        <MenuItem Header="_Arcade" />
+                        <MenuItem Header="_Rush" />
+                        <MenuItem Header="_Survival" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_Rules" />
+
+                </MenuItem>
+            </Menu>
             <!--Menu slut-->
             <Canvas Grid.Row="1" Height="636" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top" Width="300">
                 <Grid>
                     <ItemsControl ItemsSource="{Binding Bricks}"/>
                 </Grid>
-                
+
             </Canvas>
         </Grid>
-
-
-    
         <Border BorderBrush="Black" BorderThickness="5" Height="624" Name="border1" Width="0" Canvas.Left="300" Canvas.Top="6" />
     </StackPanel>
 </Window>
