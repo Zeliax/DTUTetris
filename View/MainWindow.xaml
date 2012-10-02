@@ -39,14 +39,22 @@
 
             </MenuItem>
         </Menu>
-            <!--Menu slut-->
-            <Canvas Grid.Row="1" Height="636" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top" Width="300">
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding Bricks}"/>
-                </Grid>
+            <Grid Margin="0,0,-0.4,-204.2" Grid.RowSpan="2" Height="229" VerticalAlignment="Top" RenderTransformOrigin="0.424,0.568">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="107*"/>
+                    <ColumnDefinition Width="91*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Menu slut-->
+                <Canvas Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top" Grid.ColumnSpan="1">
+                    <Grid>
+                        <ItemsControl ItemsSource="{Binding Bricks}"/>
+                    </Grid>
                 
-            </Canvas>
+                </Canvas>
+            </Grid>
         </Grid>
+
 
 
     
