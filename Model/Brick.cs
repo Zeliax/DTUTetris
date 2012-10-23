@@ -25,10 +25,11 @@ namespace Tetris.Model
         public int CenterX { get { return Width / 2; } }
         public int CenterY { get { return Height / 2; } }
  
-        public Brick()
+        public Brick(int x, int y)
         {
 
-            X = Y = 200;
+            X = x;
+            Y = y;
             Width = Height = 35;
         }
 

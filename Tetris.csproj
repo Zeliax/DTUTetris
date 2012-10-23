@@ -75,11 +75,16 @@
     <Compile Include="Command\IUndoRedoCommand.cs" />
     <Compile Include="Command\MoveBrickCommand.cs" />
     <Compile Include="Command\UndoRedoController.cs" />
+    <Compile Include="Model\BaseBlock.cs" />
     <Compile Include="Model\Brick.cs" />
+    <Compile Include="Model\LineBlock.cs" />
     <Compile Include="Model\NotifyBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MoveBricks.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\BrickControl.xaml.cs">
+      <DependentUpon>BrickControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -113,6 +118,10 @@
     <Resource Include="MVVMLight.Nuget.Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\BrickControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
