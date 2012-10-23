@@ -8,35 +8,40 @@
         
         Title="Tetris" Height="700" Width="600" ResizeMode="NoResize" >
     
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="KeyUp">
+            <cmd:EventToCommand Command="{Binding DataContext.MoveBrickCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.Resources>
+        <!-- Dette DataTemplate fortæller vinduet hvordan Node klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i NodeUserControl. -->
+
+        <!-- Dette DataTemplate fortæller vinduet hvordan Edge klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i EdgeUserControl. -->
+    </Window.Resources>
     <StackPanel>
-        <Grid>
+
+        <Canvas Grid.Column="0" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top">
+            <Grid>
+                <ItemsControl ItemsSource="{Binding Bricks}"/>
+            </Grid>
+        </Canvas>
+
+        <Grid ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
-                <RowDefinition Height="300" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="300"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="6" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <GridSplitter HorizontalAlignment="Center" Width="6"
-                  Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" />
+            <GridSplitter HorizontalAlignment="Left" Width="6"
+                  Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Focusable="False" IsEnabled="False"/>
 
-            <Canvas Name="canvas1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <ItemsControl ItemsSource="{Binding Bricks}"/>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="KeyUp">
-                            <cmd:EventToCommand Command="{Binding DataContext.MoveBrickCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-            </Canvas>
-            <Canvas Name="canvas2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <TextBlock Text="Hello" />
-            </Canvas>
-            <GroupBox Name="groupbox1" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                
-            </GroupBox>
+            
         </Grid>
     </StackPanel>
 </Window>
