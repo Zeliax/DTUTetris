@@ -32,8 +32,6 @@ namespace Tetris.ViewModel
             MoveBrickCommand = new RelayCommand<KeyEventArgs>(Move);
             Bricks = new ObservableCollection<Brick>() ;
             Brick brick1 = new Brick(200,200);
-            brick1.X = 400;
-            brick1.Y = 0;
             Bricks.Add(brick1);
             MoveBricks BrickMover = new MoveBricks(brick1);
             UndoCommand = new RelayCommand(undoRedoController.Undo, undoRedoController.CanUndo);
