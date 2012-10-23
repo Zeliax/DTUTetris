@@ -9,12 +9,12 @@ namespace Tetris.Model
     abstract class BaseBlock
     {
         public Brick[] Block = new Brick[4];
-        public void MoveRight();
-        public void MoveLeft();
-        public void RotateRight();
-        public void RotateLeft();
-        public void DropDown();
-        public void StoreBlock();
+        public abstract void MoveRight();
+        public abstract void MoveLeft();
+        public abstract void RotateRight();
+        public abstract void RotateLeft();
+        public abstract void DropDown();
+        public abstract void StoreBlock();
     
     }
 }

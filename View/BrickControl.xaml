@@ -9,6 +9,5 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Rectangle Fill="Blue" Stroke="Black" StrokeThickness="9"  Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Width="{Binding Width}" Height="{Binding Height}"/>
-        <ContentControl View:MainWindow="BrickControl"/>
     </Grid>
 </UserControl>

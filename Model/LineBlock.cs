@@ -17,5 +17,24 @@ namespace Tetris.Model
                 Block[i] = new Brick(3+i, 0);
             }
         }
+        public override void MoveRight()
+        {
+        }
+        public override void MoveLeft()
+        {
+        }
+        public override void RotateRight()
+        {
+        }
+        public override void RotateLeft()
+        {
+        }
+        public override void DropDown()
+        {
+        }
+        public override void StoreBlock()
+        {
+        }
+        
     }
 }

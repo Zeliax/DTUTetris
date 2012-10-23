@@ -31,7 +31,7 @@ namespace Tetris.ViewModel
         {
             MoveBrickCommand = new RelayCommand<KeyEventArgs>(Move);
             Bricks = new ObservableCollection<Brick>() ;
-            Brick brick1 = new Brick();
+            Brick brick1 = new Brick(200,200);
             brick1.X = 400;
             brick1.Y = 0;
             Bricks.Add(brick1);
