@@ -14,9 +14,9 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Window.Resources>
-        <!-- Dette DataTemplate fortæller vinduet hvordan Node klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i NodeUserControl. -->
-
-        <!-- Dette DataTemplate fortæller vinduet hvordan Edge klassen skal vises grafisk. Denne grafiske beskrivelse er samlet i EdgeUserControl. -->
+        <DataTemplate DataType="{x:Type Model:Brick}">
+            <View:BrickControl/>
+        </DataTemplate>
     </Window.Resources>
     <StackPanel>
 
