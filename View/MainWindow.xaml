@@ -22,37 +22,45 @@
         </DataTemplate>
     </Window.Resources>
     
-    
-    <StackPanel>
+    <Grid> 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-        <Canvas Grid.Column="0" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top">
-            <Grid>
-                <ItemsControl ItemsSource="{Binding Bricks}"/>
-            </Grid>
+        <Canvas Grid.Column="0" HorizontalAlignment="Left" Name="Canvas_Game" VerticalAlignment="Top">
+            <ItemsControl ItemsSource="{Binding Bricks}"/>
         </Canvas>
 
-        <Grid ShowGridLines="True" HorizontalAlignment="Left" Margin="0,0,-0.4,0" Width="594">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="350" />
-                <ColumnDefinition Width="6" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1" HorizontalAlignment="Left">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="350" />
-                    <ColumnDefinition Width="6" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                
-                
-            </Grid>
-
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions> 
             
-
-            <GridSplitter HorizontalAlignment="Left" Width="6"
-                  Grid.Row="0" Grid.RowSpan="2" Focusable="False" IsEnabled="False" Grid.ColumnSpan="2" Margin="351,0,0,0"/>
-
-            
+            <Canvas Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Name="Text_NextBrick" Text="Next Brick" />
+                </StackPanel>
+            </Canvas>
+            <GroupBox Grid.Row="1" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+               
+                    <TextBlock Grid.Row="0" Name="Text_Score" Text="Your score is 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Name="Text_Level" Text="You're on level 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Name="Text_Lines" Text="You've completed 0 lines" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </GroupBox>
+            <ListBox Grid.Row="2">
+                
+            </ListBox>
         </Grid>
-    </StackPanel>
+    </Grid>
+
 </Window>
