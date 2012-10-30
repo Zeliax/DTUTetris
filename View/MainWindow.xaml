@@ -21,6 +21,8 @@
             </Canvas>
         </DataTemplate>
     </Window.Resources>
+    
+    
     <StackPanel>
 
         <Canvas Grid.Column="0" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top">
