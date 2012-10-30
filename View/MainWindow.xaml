@@ -6,43 +6,53 @@
         xmlns:i ="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
         
-        Title="Tetris" Height="700" Width="600">
+        Title="Tetris" Height="700" Width="600" ResizeMode="NoResize" >
     
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyUp">
             <cmd:EventToCommand Command="{Binding DataContext.MoveBrickCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" PassEventArgsToCommand="True"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <Window.Resources>
         <DataTemplate DataType="{x:Type Model:Brick}">
-            <View:BrickControl/>
+            <Canvas>
+                <View:BrickControl Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}"/> 
+            </Canvas>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
-    <Viewbox Grid.Column="1" Grid.Row="1">
+    
+    
     <StackPanel>
+
         <Canvas Grid.Column="0" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top">
             <Grid>
                 <ItemsControl ItemsSource="{Binding Bricks}"/>
             </Grid>
         </Canvas>
 
-        <Grid ShowGridLines="True" HorizontalAlignment="Left" Width="594" Height="700">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <Grid ShowGridLines="True" HorizontalAlignment="Left" Margin="0,0,-0.4,0" Width="594">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="350" />
                 <ColumnDefinition Width="6" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                
+            </Grid>
+
+            
 
             <GridSplitter HorizontalAlignment="Left" Width="6"
-                  Grid.Row="0" Grid.Column="1" Focusable="False" IsEnabled="False" Grid.RowSpan="3"/>
+                  Grid.Row="0" Grid.RowSpan="2" Focusable="False" IsEnabled="False" Grid.ColumnSpan="2" Margin="351,0,0,0"/>
 
-         
-            </Grid>
+            
+        </Grid>
     </StackPanel>
-    </Viewbox>
-    </Grid>
 </Window>
