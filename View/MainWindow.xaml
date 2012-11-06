@@ -41,7 +41,9 @@
                 <RowDefinition Height="3*" />
             </Grid.RowDefinitions> 
             
-            <Canvas Grid.Row="0"/>
+            <Canvas Grid.Row="0">
+                
+            </Canvas>
             <GroupBox Grid.Row="1" x:Name="Groupbox_Collection">
                 <Grid>
                     <Grid.RowDefinitions>
