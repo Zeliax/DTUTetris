@@ -14,7 +14,10 @@ namespace Tetris.Model
         public abstract void RotateRight();
         public abstract void RotateLeft();
         public abstract void DropDown();
+        public abstract void MoveDown();
         public abstract void StoreBlock();
+        public int state = 0;
+        public bool Active = true;
     
     }
 }

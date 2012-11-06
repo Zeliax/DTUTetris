@@ -79,8 +79,9 @@
     <Compile Include="Model\Brick.cs" />
     <Compile Include="Model\LineBlock.cs" />
     <Compile Include="Model\NotifyBase.cs" />
+    <Compile Include="Model\SBlock.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\MoveBricks.cs" />
+    <Compile Include="ViewModel\MoveBlock.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\BrickControl.xaml.cs">
       <DependentUpon>BrickControl.xaml</DependentUpon>

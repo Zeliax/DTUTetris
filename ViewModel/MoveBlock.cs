@@ -8,25 +8,29 @@ using System.Timers;
 
 namespace Tetris.ViewModel
 {
-    class MoveBricks
+    class MoveBlock
     {
-        Brick brick;
-        public MoveBricks(Brick brick)
+        Timer timer;
+        BaseBlock block;
+        MainViewModel Main;
+        public MoveBlock(BaseBlock block,MainViewModel Main)
         {
-            this.brick = brick;
-            Timer timer = new Timer(700);
+            this.Main = Main;
+            this.block = block;
+            timer = new Timer(700);
             timer.Elapsed +=new ElapsedEventHandler(run);
             timer.Start();
         }
         public void run(object sender, ElapsedEventArgs e)
         {
-            if (brick.IsActive)
+            
+            if (Main.WouldMoveOutsideY())
             {
-                brick.MoveYDown();
+                timer.Stop();
             }
             else
             {
-                brick.Y = 0;
+                block.MoveDown();
             }
             
         }

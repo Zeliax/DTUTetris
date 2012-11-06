@@ -6,7 +6,7 @@
         xmlns:i ="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4"
         
-        Title="Tetris" Height="700" Width="600" ResizeMode="NoResize" >
+        Title="Tetris" Height="730" Width="600" ResizeMode="NoResize" >
     
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyUp">
@@ -17,7 +17,7 @@
     <Window.Resources>
         <DataTemplate DataType="{x:Type Model:Brick}">
             <Canvas>
-                <View:BrickControl Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}"/> 
+                <View:BrickControl Canvas.Left="{Binding VisualX}" Canvas.Top="{Binding VisualY}"/> 
             </Canvas>
         </DataTemplate>
     </Window.Resources>

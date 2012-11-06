@@ -28,14 +28,14 @@ namespace Tetris.Command
 
         public void Execute()
         {
-            brick.CanvasCenterX = newX;
-            brick.CanvasCenterY = newY;
+        //    brick.CanvasCenterX = newX;
+        //    brick.CanvasCenterY = newY;
         }
 
         public void UnExecute()
         {
-            brick.CanvasCenterX = x;
-            brick.CanvasCenterY = y;
+        //    brick.CanvasCenterX = x;
+        //    brick.CanvasCenterY = y;
         }
     }
 }

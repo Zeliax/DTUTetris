@@ -6,16 +6,16 @@ using System.Windows.Media;
 
 namespace Tetris.Model
 {
-    class LineBlock : BaseBlock
+    class SBlock : BaseBlock
     {
         Color LineColor = Colors.Red;
-        public LineBlock()
+        public SBlock()
         {
-
-            for (int i = 0; i < 4; ++i)
-            {
-                Block[i] = new Brick(5, i);
-            }
+            Block[0] = new Brick(5,1);
+            Block[1] = new Brick(5,2);
+            Block[2] = new Brick(6,2);
+            Block[3] = new Brick(6,3);
+            
         }
         public override void MoveRight()
         {
@@ -38,11 +38,11 @@ namespace Tetris.Model
                 Block[0].X++;
                 Block[0].Y++;
 
-                Block[2].X--;
+                Block[2].X++;
                 Block[2].Y--;
 
                 Block[3].X -= 2;
-                Block[3].Y -= 2;
+                //Block[3].Y -= 2;
                 state = 1;
             }
             else if (state == 1)
@@ -50,10 +50,10 @@ namespace Tetris.Model
                 Block[0].X--;
                 Block[0].Y++;
 
-                Block[2].X++;
+                Block[2].X--;
                 Block[2].Y--;
 
-                Block[3].X += 2;
+                //Block[3].X += 2;
                 Block[3].Y -= 2;
                 state = 2;
             }
@@ -88,14 +88,14 @@ namespace Tetris.Model
         {
             if (state == 0)
             {
-                Block[0].X--;
+                Block[0].X++;
                 Block[0].Y++;
 
                 Block[2].X++;
                 Block[2].Y--;
 
-                Block[3].X += 2;
-                Block[3].Y -= 2;
+                Block[3].X -= 2;
+                //Block[3].Y -= 2;
                 state = 3;
             }
             else if (state == 1)
@@ -135,6 +135,7 @@ namespace Tetris.Model
                 state = 2;
             }
 
+
         }
         public override void MoveDown()
         {
@@ -157,6 +158,5 @@ namespace Tetris.Model
                 Block[i].MoveXRight();
             }
         }
-
     }
 }
