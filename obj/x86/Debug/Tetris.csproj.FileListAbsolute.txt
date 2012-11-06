@@ -1,0 +1,4 @@
+C:\Users\Thomas Hammerbak\workspace\DTUTetris\obj\x86\Debug\View\BrickControl.g.cs
+C:\Users\Thomas Hammerbak\workspace\DTUTetris\obj\x86\Debug\App.g.cs
+C:\Users\Thomas Hammerbak\workspace\DTUTetris\obj\x86\Debug\Tetris_MarkupCompile.cache
+C:\Users\Thomas Hammerbak\workspace\DTUTetris\obj\x86\Debug\Tetris_MarkupCompile.lref
